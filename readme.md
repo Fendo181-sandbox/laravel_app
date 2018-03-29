@@ -25,11 +25,20 @@ migrate
 $php artisan migrate
 ```
 
+npm
+
+```
+nom install 
+npm run dev
+```
+
 Local Serverを立ち上げる。
 
 ```
 php -S localhost:8000 -t public
 ```
+
+
 
 
 ## License
