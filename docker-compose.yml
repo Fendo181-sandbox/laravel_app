@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  php-fpm:
+    build: ./docker_dev/php-fpm
+    hostname: php-fpm
+  nginx:
+    build: ./docker_dev/nginx
+    volumes:
+      - ./docker_dev/nginx/index.php:/var/
+    hostname: nginx
+    ports:
+      - "8080:80"
+    depends_on:
+      - php-fpm
+
