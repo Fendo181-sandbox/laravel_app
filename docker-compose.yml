@@ -1,16 +1,19 @@
 version: '3'
-
 services:
   php-fpm:
     build: ./docker_dev/php-fpm
-    hostname: php-fpm
-  nginx:
-    build: ./docker_dev/nginx
+    container_name: "php-fpm"
     volumes:
-      - ./docker_dev/nginx/index.php:/var/
-    hostname: nginx
+        - .:/app
+    links:
+        - mysql
+  mysql:
+    image: mysql:latest
+    container_name: mysql
+    environment:
+          - "MYSQL_DATABASE=homestead"
+          - "MYSQL_USER=endu"
+          - "MYSQL_PASSWORD=endu"
     ports:
-      - "8080:80"
-    depends_on:
-      - php-fpm
+          - "3306:3306"
 
