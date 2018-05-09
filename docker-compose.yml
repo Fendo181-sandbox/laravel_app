@@ -8,12 +8,13 @@ services:
     links:
         - mysql
   mysql:
-    image: mysql:latest
+    image: mysql:5.7
     container_name: mysql
     environment:
           - "MYSQL_DATABASE=homestead"
           - "MYSQL_USER=endu"
           - "MYSQL_PASSWORD=endu"
+          - "MYSQL_ALLOW_EMPTY_PASSWORD=endu"
     ports:
           - "3306:3306"
 
